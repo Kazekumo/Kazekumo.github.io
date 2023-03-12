@@ -1,0 +1,36 @@
+{{ define "main" }}
+  {{ $pages := intersect (where .Site.RegularPages "Type" "in" (slice "docs" "posts" "projects" "weekly")) (where .Site.Pages "Params.date" "!=" nil)}}
+  {{ range sort (.Paginate $pages.ByDate.Reverse).Pages }}
+  <article class="markdown book-post">
+    <h2>
+      <a href="{{ .RelPermalink }}">{{ if eq .Type "docs"}}{{ path.Base .File.Dir | title }} — {{ end }}{{ .Title }}</a>
+      {{ if eq .Type "docs"}}
+        <span class="doc-title">[ Doc ]</span>
+      {{else if eq .Type "weekly"}}
+        <span class="weekly-title">[ Weekly ]</span>
+      {{else if eq .Type "projects"}}
+        <span class="project-title">[ Project ]</span>
+      {{ end }}
+    </h2>
+    {{ partial "docs/post-meta" . }}
+    <p>
+      {{- .Summary -}}
+      {{ if .Truncated }}
+        <a href="{{ .RelPermalink }}">...</a>
+      {{ end }}
+    </p>
+  </article>
+  {{ end }}
+
+  {{ template "_internal/pagination.html" . }}
+  <br>
+  {{if .Site.Params.CopyrightHTML}}<footer>
+    <div class="text-center">{{.Site.Params.CopyrightHTML}}</div>
+    </footer>
+  {{end}}
+
+{{ end }}
+
+{{ define "toc" }}
+  {{ partial "docs/taxonomy" . }}
+{{ end }}

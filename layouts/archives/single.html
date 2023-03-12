@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ $pages := (where .Site.Pages "Params.date" "!=" nil)}}
+
+<span style="color: darkgrey;">All</span> / <a href="/posts">Posts</a>
+
+{{ range $pages.GroupByDate "2006" }}
+<section>
+  <h1 style="color: dimgray;" id="{{ .Key }}">{{ .Key }}</h1>
+  <div class="posts">
+    {{ range .Pages }}
+    <div class="post">
+      <p><h3><time style="color: darkgrey;">{{.Date.Format "2006-01-02"}}</time>&nbsp;»&nbsp;<a href="{{ .RelPermalink }}">
+        {{ if not .Title}}
+          {{ .File }} <span class="danger-title">[Danger]</span>
+        {{ else }}
+          {{ if eq .Type "docs"}}{{ path.Base .File.Dir | title }} — {{ end }}{{ .Title }}
+        {{ end }}
+      </a>
+      {{ if eq .Type "docs"}}
+        <span class="doc-title">[ Doc ]</span>
+      {{else if eq .Type "weekly"}}
+        <span class="weekly-title">[ Weekly ]</span>
+      {{else if eq .Type "projects"}}
+        <span class="project-title">[ Project ]</span>
+      {{ end }}
+      </h3></p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}
+
+{{ define "toc" }}
+  {{ partial "docs/categories" . }}
+{{ end }}
