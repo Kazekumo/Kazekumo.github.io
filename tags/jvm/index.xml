@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>jvm on My Blog</title>
+    <link>https://Kazekumo.github.io/tags/jvm/</link>
+    <description>Recent content in jvm on My Blog</description>
+    <image>
+      <title>My Blog</title>
+      <url>https://Kazekumo.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://Kazekumo.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://Kazekumo.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JVM笔记01</title>
+      <link>https://Kazekumo.github.io/posts/jvm%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://Kazekumo.github.io/posts/jvm%E7%AC%94%E8%AE%B0/</guid>
+      <description>Guide to emoji usage in Hugo</description>
+    </item>
+    
+  </channel>
+</rss>

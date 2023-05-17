@@ -1,10 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on Hugo Book</title><link>https://example.com/posts/</link><description>Recent content in Blog on Hugo Book</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating a New Theme</title><link>https://example.com/posts/creating-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>https://example.com/posts/creating-a-new-theme/</guid><description>&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt; Updated upstream &amp;laquo;&amp;laquo;&amp;laquo;&amp;lt; Updated upstream
-Introduction # This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description></item><item><title>Migrate to Hugo from Jekyll</title><link>https://example.com/posts/migrate-from-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>https://example.com/posts/migrate-from-jekyll/</guid><description>Move static content to static # Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description></item><item><title>(Hu)go Template Primer</title><link>https://example.com/posts/goisforlovers/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://example.com/posts/goisforlovers/</guid><description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description></item><item><title>Getting Started with Hugo</title><link>https://example.com/posts/hugoisforlovers/</link><pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate><guid>https://example.com/posts/hugoisforlovers/</guid><description>Step 1. Install Hugo # Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs # Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on My Blog</title>
+    <link>https://Kazekumo.github.io/posts/</link>
+    <description>Recent content in Posts on My Blog</description>
+    <image>
+      <title>My Blog</title>
+      <url>https://Kazekumo.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://Kazekumo.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://Kazekumo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BaseEntity源码分析</title>
+      <link>https://Kazekumo.github.io/posts/baseentity%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://Kazekumo.github.io/posts/baseentity%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
+      <description>Guide to emoji usage in Hugo</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>https://Kazekumo.github.io/posts/second/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://Kazekumo.github.io/posts/second/</guid>
+      <description>Guide to emoji usage in Hugo</description>
+    </item>
+    
+    <item>
+      <title>JVM笔记01</title>
+      <link>https://Kazekumo.github.io/posts/jvm%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://Kazekumo.github.io/posts/jvm%E7%AC%94%E8%AE%B0/</guid>
+      <description>Guide to emoji usage in Hugo</description>
+    </item>
+    
+  </channel>
+</rss>

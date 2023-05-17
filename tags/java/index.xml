@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My Blog</title>
-    <link>https://Kazekumo.github.io/</link>
-    <description>Recent content on My Blog</description>
+    <title>java on My Blog</title>
+    <link>https://Kazekumo.github.io/tags/java/</link>
+    <description>Recent content in java on My Blog</description>
     <image>
       <title>My Blog</title>
       <url>https://Kazekumo.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://Kazekumo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://Kazekumo.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BaseEntity源码分析</title>
       <link>https://Kazekumo.github.io/posts/baseentity%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
@@ -20,26 +20,6 @@
       <guid>https://Kazekumo.github.io/posts/baseentity%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
       <description>Guide to emoji usage in Hugo</description>
     </item>
-    
-    <item>
-      <title>Emoji Support</title>
-      <link>https://Kazekumo.github.io/posts/second/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Kazekumo.github.io/posts/second/</guid>
-      <description>Guide to emoji usage in Hugo</description>
-    </item>
-    
-    <item>
-      <title>JVM笔记01</title>
-      <link>https://Kazekumo.github.io/posts/jvm%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://Kazekumo.github.io/posts/jvm%E7%AC%94%E8%AE%B0/</guid>
-      <description>Guide to emoji usage in Hugo</description>
-    </item>
-    
-    
     
   </channel>
 </rss>

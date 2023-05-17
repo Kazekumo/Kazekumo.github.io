@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://Kazekumo.github.io/sitemap.xml
