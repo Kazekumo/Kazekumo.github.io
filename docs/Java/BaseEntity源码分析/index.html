@@ -1,18 +1,18 @@
 <!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="开发中发现许多对象都依赖了css的基类对象BaseEntity 偶然点开发现里面的写法不太容易理解，因此分析记录一下
 点开对象可以发现，有两个属性是比较特别的，也就是 propMap 和 visitor 本文的目的也主要是分析这两个对象的用途。
-![[/static/img/Pasted image 20230505092032.png]]
-先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在toString中。 最终这个函数是调用了toString0 或者 hexString 初见这一坨，我也百思不得其解，先不管，继续看看toString0 ![[/static/img/Pasted image 20230505103131.png]]
-分析代码可知，toString0这个方法才是对象转字符串的主要实现，通过getProps获取对象的属性列表，然后在下面进行属性的拼接 ![[/static/img/Pasted image 20230505103619.png]]
-看看getProps，可以发现propMap的用途是存储该类的所有属性名称。 如果该对象的属性未初始化，则通过反射获取。 ![[/static/img/Pasted image 20230512180112.png]] 需要注意的是，这里使用了 double check lock，避免重入。 当第二次进入时，就可以复用属性，不用再反射获取了。 到了此处，propMap 的用途基本就解答了。
-那么为啥要有 visotor 呢？我们再回过头来看toString方法 ![[/static/img/Pasted image 20230512173325.png]]
+![[static/Pasted image 20230505092032.png]]
+先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在toString中。 最终这个函数是调用了toString0 或者 hexString 初见这一坨，我也百思不得其解，先不管，继续看看toString0 ![[static/Pasted image 20230505103131.png]]
+分析代码可知，toString0这个方法才是对象转字符串的主要实现，通过getProps获取对象的属性列表，然后在下面进行属性的拼接 ![[static/Pasted image 20230505103619.png]]
+看看getProps，可以发现propMap的用途是存储该类的所有属性名称。 如果该对象的属性未初始化，则通过反射获取。 ![[static/Pasted image 20230512180112.png]] 需要注意的是，这里使用了 double check lock，避免重入。 当第二次进入时，就可以复用属性，不用再反射获取了。 到了此处，propMap 的用途基本就解答了。
+那么为啥要有 visotor 呢？我们再回过头来看toString方法 ![[static/Pasted image 20230512173325.png]]
 在toString方法中，visitor 的逻辑主要如下
 如果 visitor为空，重新初始化 visitor 如果 visitor.get() 为空： 1. 设置 visitor 为当前对象 2. 调用 toString0 3. 设置 visitor 为 null 如果 visitor 的值不为空，返回 HexString 这里的目的不太好理解。首先对于步骤1，我们可以先忽略，因为实际不影响流程。 控制流程的主要是步骤2和步骤3。 首先可以观察到，步骤2的进入条件是 visitor 为空，步骤3的进入条件为 visitor 不为空。也就是说，步骤2和步骤3这两步操作是互斥的。 在步骤2."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="开发中发现许多对象都依赖了css的基类对象BaseEntity 偶然点开发现里面的写法不太容易理解，因此分析记录一下
 点开对象可以发现，有两个属性是比较特别的，也就是 propMap 和 visitor 本文的目的也主要是分析这两个对象的用途。
-![[/static/img/Pasted image 20230505092032.png]]
-先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在toString中。 最终这个函数是调用了toString0 或者 hexString 初见这一坨，我也百思不得其解，先不管，继续看看toString0 ![[/static/img/Pasted image 20230505103131.png]]
-分析代码可知，toString0这个方法才是对象转字符串的主要实现，通过getProps获取对象的属性列表，然后在下面进行属性的拼接 ![[/static/img/Pasted image 20230505103619.png]]
-看看getProps，可以发现propMap的用途是存储该类的所有属性名称。 如果该对象的属性未初始化，则通过反射获取。 ![[/static/img/Pasted image 20230512180112.png]] 需要注意的是，这里使用了 double check lock，避免重入。 当第二次进入时，就可以复用属性，不用再反射获取了。 到了此处，propMap 的用途基本就解答了。
-那么为啥要有 visotor 呢？我们再回过头来看toString方法 ![[/static/img/Pasted image 20230512173325.png]]
+![[static/Pasted image 20230505092032.png]]
+先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在toString中。 最终这个函数是调用了toString0 或者 hexString 初见这一坨，我也百思不得其解，先不管，继续看看toString0 ![[static/Pasted image 20230505103131.png]]
+分析代码可知，toString0这个方法才是对象转字符串的主要实现，通过getProps获取对象的属性列表，然后在下面进行属性的拼接 ![[static/Pasted image 20230505103619.png]]
+看看getProps，可以发现propMap的用途是存储该类的所有属性名称。 如果该对象的属性未初始化，则通过反射获取。 ![[static/Pasted image 20230512180112.png]] 需要注意的是，这里使用了 double check lock，避免重入。 当第二次进入时，就可以复用属性，不用再反射获取了。 到了此处，propMap 的用途基本就解答了。
+那么为啥要有 visotor 呢？我们再回过头来看toString方法 ![[static/Pasted image 20230512173325.png]]
 在toString方法中，visitor 的逻辑主要如下
 如果 visitor为空，重新初始化 visitor 如果 visitor.get() 为空： 1. 设置 visitor 为当前对象 2. 调用 toString0 3. 设置 visitor 为 null 如果 visitor 的值不为空，返回 HexString 这里的目的不太好理解。首先对于步骤1，我们可以先忽略，因为实际不影响流程。 控制流程的主要是步骤2和步骤3。 首先可以观察到，步骤2的进入条件是 visitor 为空，步骤3的进入条件为 visitor 不为空。也就是说，步骤2和步骤3这两步操作是互斥的。 在步骤2."><meta property="og:type" content="article"><meta property="og:url" content="https://example.com/docs/Java/BaseEntity%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"><meta property="article:section" content="docs"><title>Base Entity源码分析 | Hugo Book</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
 <script defer src=/en.search.min.78166b9d46e23e0ea915cb6887a30b633e7bc4fad10c8b6b9f6fa532271c19ba.js integrity="sha256-eBZrnUbiPg6pFctoh6MLYz57xPrRDItrn2+lMiccGbo=" crossorigin=anonymous></script>
@@ -22,27 +22,27 @@
 <label for=section-d3fc1bf6d66cd84b896a0af9f40cb1d5 class="flex justify-between"><a href=/docs/shortcodes/section/>Section</a></label><ul><li><a href=/docs/shortcodes/section/first-page/>First Page</a></li><li><a href=/docs/shortcodes/section/second-page/>Second Page</a></li></ul></li><li><a href=/docs/shortcodes/tabs/>Tabs</a></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Base Entity源码分析</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><article class=markdown><p>开发中发现许多对象都依赖了css的基类对象<code>BaseEntity</code>
-偶然点开发现里面的写法不太容易理解，因此分析记录一下</p><p><img src=/static/img/Pasted%20image%2020230512175229.png alt>
+偶然点开发现里面的写法不太容易理解，因此分析记录一下</p><p><img src=static/Pasted%20image%2020230512175229.png alt>
 点开对象可以发现，有两个属性是比较特别的，也就是 propMap 和 visitor
-本文的目的也主要是分析这两个对象的用途。</p><p>![[/static/img/Pasted image 20230505092032.png]]</p><p>先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在<code>toString</code>中。
+本文的目的也主要是分析这两个对象的用途。</p><p>![[static/Pasted image 20230505092032.png]]</p><p>先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在<code>toString</code>中。
 最终这个函数是调用了<code>toString0</code> 或者 <code>hexString</code>
 初见这一坨，我也百思不得其解，先不管，继续看看<code>toString0</code>
-![[/static/img/Pasted image 20230505103131.png]]</p><p>分析代码可知，<code>toString0</code>这个方法才是对象转字符串的主要实现，通过<code>getProps</code>获取对象的属性列表，然后在下面进行属性的拼接
-![[/static/img/Pasted image 20230505103619.png]]</p><p>看看<code>getProps</code>，可以发现propMap的用途是存储该类的所有属性名称。
+![[static/Pasted image 20230505103131.png]]</p><p>分析代码可知，<code>toString0</code>这个方法才是对象转字符串的主要实现，通过<code>getProps</code>获取对象的属性列表，然后在下面进行属性的拼接
+![[static/Pasted image 20230505103619.png]]</p><p>看看<code>getProps</code>，可以发现propMap的用途是存储该类的所有属性名称。
 如果该对象的属性未初始化，则通过反射获取。
-![[/static/img/Pasted image 20230512180112.png]]
+![[static/Pasted image 20230512180112.png]]
 需要注意的是，这里使用了 double check lock，避免重入。
 当第二次进入时，就可以复用属性，不用再反射获取了。
 到了此处，propMap 的用途基本就解答了。</p><p>那么为啥要有 visotor 呢？我们再回过头来看<code>toString</code>方法
-![[/static/img/Pasted image 20230512173325.png]]</p><p>在<code>toString</code>方法中，visitor 的逻辑主要如下</p><ol><li>如果 visitor为空，重新初始化 visitor</li><li>如果 visitor.get() 为空：
+![[static/Pasted image 20230512173325.png]]</p><p>在<code>toString</code>方法中，visitor 的逻辑主要如下</p><ol><li>如果 visitor为空，重新初始化 visitor</li><li>如果 visitor.get() 为空：
 1. 设置 visitor 为当前对象
 2. 调用 toString0
 3. 设置 visitor 为 null</li><li>如果 visitor 的值不为空，返回 HexString</li></ol><p>这里的目的不太好理解。首先对于步骤1，我们可以先忽略，因为实际不影响流程。
 控制流程的主要是步骤2和步骤3。
 首先可以观察到，步骤2的进入条件是 visitor 为空，步骤3的进入条件为 visitor 不为空。也就是说，步骤2和步骤3这两步操作是互斥的。
 在步骤2.1中，设置了 visitor 为当前对象，然后在2.3中又重置了回去。那么也就是说同一个线程，他不能重入步骤2。</p><p>这里比较有迷惑性，因为threadLocal是线程独立的，搞这么复杂干嘛呢，同一个线程还能重入这个方法不成？
-读者可以先思考一下，表情包下面给出答案。</p><p>![[/static/img/Pasted image 20230512175120.png]]</p><p>同一个线程还能重入这个方法不成？确实是可能的。
+读者可以先思考一下，表情包下面给出答案。</p><p>![[static/Pasted image 20230512175120.png]]</p><p>同一个线程还能重入这个方法不成？确实是可能的。
 答案就是当对象发生了循环引用，这时调用<code>toString</code>方法，序列化子对象时，由于循环引用，就会再次进入父对象的<code>toString</code>方法，不断套娃，最终导致栈溢出。
 所以此处使用visitor进行流程控制的目的就是为了打破这个循环调用链。</p><p><code>BaseEntity</code>这个类虽然代码量比较少，但是还是有值得学习的地方的。
-![[/static/img/Pasted image 20230512174950.png]]</p><p>实际上，许多框架都支持了循环引用，不过方式上可能有些许差异，比如 FastJson 使用 $ref 占位符避免序列化子对象，Spring 使用了多级缓存的方式等等，这里就不赘述了。</p><p>框架开发人员总是考虑到各种场景进行了兼容，不过我认为大部分循环引用，其实并不值得解决，因为其代表是层级结构本身的不合理。</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/docs/Java/BaseEntity%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
+![[static/Pasted image 20230512174950.png]]</p><p>实际上，许多框架都支持了循环引用，不过方式上可能有些许差异，比如 FastJson 使用 $ref 占位符避免序列化子对象，Spring 使用了多级缓存的方式等等，这里就不赘述了。</p><p>框架开发人员总是考虑到各种场景进行了兼容，不过我认为大部分循环引用，其实并不值得解决，因为其代表是层级结构本身的不合理。</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/docs/Java/BaseEntity%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90.md target=_blank rel=noopener><img src=/svg/edit.svg class=book-icon alt=Edit>
 <span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
