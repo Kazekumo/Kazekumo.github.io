@@ -1,11 +1,10 @@
 ---
-author: "Hugo Authors"
 title: "JVM笔记01"
-date: "2019-03-05"
-description: "Guide to emoji usage in Hugo"
+date: "2023-05-15"
+description: ""
 tags: ["jvm"]
 ShowToc: false
-ShowBreadCrumbs: false
+ShowBreadCrumbs: true
 ---
 
 # 为什么有JVM

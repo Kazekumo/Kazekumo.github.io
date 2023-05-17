@@ -3,7 +3,7 @@ languageCode: zh-cn
 paginate: 5
 
 theme: PaperMod
-title: My Blog
+title: Kazekumo's blog
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -20,8 +20,8 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
+  title: Kazekumo's blog
+  description: "Hi there 🌱"
   keywords: [Blog, Portfolio, PaperMod]
   # author: Me
   # author: ["Me", "You"] # multiple authors
@@ -40,31 +40,48 @@ params:
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
   hidemeta: false
   hideSummary: false
   showtoc: false
   tocopen: false
 
+  comments: true
+# <script src="https://giscus.app/client.js"
+#         data-repo="KazeKumo/kazekumo.github.io"
+#         data-repo-id="R_kgDOJHAa3A"
+#         data-category="Announcements"
+#         data-category-id="DIC_kwDOJHAa3M4CWjTF"
+#         data-mapping="pathname"
+#         data-strict="1"
+#         data-reactions-enabled="1"
+#         data-emit-metadata="0"
+#         data-input-position="top"
+#         data-theme="preferred_color_scheme"
+#         data-lang="zh-CN"
+#         data-loading="lazy"
+#         crossorigin="anonymous"
+#         async>
+# </script>
+
   assets:
+    favicon: "/favicon.ico"
+    favicon16x16:  "/favicon-16x16.png"
+    favicon32x32:  "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    # safari_pinned_tab: "<link / abs url>"
 
-  label:
-    text: "Home"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
+  # label:
+  #   text: "Home"
+  #   icon: /apple-touch-icon.png
+  #   iconHeight: 35
 
   # profile-mode
   profileMode:
-    enabled: true # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
+    enabled: false # needs to be explicitly set
+    title: Kazekumo's blog
+    subtitle: "Welcome to my blog"
     # imageUrl: "<img location>"
     imageWidth: 120
     imageHeight: 120
@@ -79,7 +96,7 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
+    Title: "Hi there 🌱"
     Content: Welcome to my blog
 
   socialIcons:
@@ -103,7 +120,7 @@ params:
 
   editPost:
     URL: "https://github.com/Kazekumo/Kazekumo.github.io/tree/main/content"
-    Text: "Suggest Changes" # edit text
+    Text: "source" # edit text
     appendFilePath: true # to append file path to Edit link
 
   # for search
@@ -139,12 +156,12 @@ menu:
 pygmentsUseClasses: true
 markup:
   highlight:
-    noClasses: false
     # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    # noClasses: false
+    style: monokai
 
 outputs:
     home:

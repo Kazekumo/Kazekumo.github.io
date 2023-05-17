@@ -1,11 +1,10 @@
 ---
-author: "Hugo Authors"
 title: "BaseEntity源码分析"
-date: "2019-03-05"
-description: "Guide to emoji usage in Hugo"
+date: "2023-05-10"
+description: "浅浅分析一下"
 tags: ["java"]
 ShowToc: false
-ShowBreadCrumbs: false
+ShowBreadCrumbs: true
 ---
 
 开发中发现许多对象都依赖了css的基类对象`BaseEntity`
