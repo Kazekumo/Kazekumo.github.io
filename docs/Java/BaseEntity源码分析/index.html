@@ -22,7 +22,7 @@
 <label for=section-d3fc1bf6d66cd84b896a0af9f40cb1d5 class="flex justify-between"><a href=/docs/shortcodes/section/>Section</a></label><ul><li><a href=/docs/shortcodes/section/first-page/>First Page</a></li><li><a href=/docs/shortcodes/section/second-page/>Second Page</a></li></ul></li><li><a href=/docs/shortcodes/tabs/>Tabs</a></li></ul></li></ul><ul><li><a href=/posts/>Blog</a></li><li><a href=https://github.com/alex-shpak/hugo-book target=_blank rel=noopener>Github</a></li><li><a href=https://themes.gohugo.io/hugo-book/ target=_blank rel=noopener>Hugo Themes</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Base Entity源码分析</strong>
 <label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><article class=markdown><p>开发中发现许多对象都依赖了css的基类对象<code>BaseEntity</code>
-偶然点开发现里面的写法不太容易理解，因此分析记录一下</p><p><img src=/docs/Java//static/img/Pasted%20image%2020230512175229.png>
+偶然点开发现里面的写法不太容易理解，因此分析记录一下</p><p><img src=/static/img/Pasted%20image%2020230512175229.png alt>
 点开对象可以发现，有两个属性是比较特别的，也就是 propMap 和 visitor
 本文的目的也主要是分析这两个对象的用途。</p><p>![[/static/img/Pasted image 20230505092032.png]]</p><p>先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在<code>toString</code>中。
 最终这个函数是调用了<code>toString0</code> 或者 <code>hexString</code>
