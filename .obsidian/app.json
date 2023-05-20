@@ -1,3 +1,7 @@
 {
-  "newLinkFormat": "absolute"
+  "newLinkFormat": "absolute",
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": true,
+  "promptDelete": false,
+  "newFileLocation": "root"
 }
