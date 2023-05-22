@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/BaseEntity-Analysis.md",
+                "file": "content/posts/thinking-jvm.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/posts/BaseEntity-Analysis.md",
+                "file": "content/posts/thinking-jvm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/posts/BaseEntity-Analysis.md",
+                "file": "content/posts/thinking-jvm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/posts/BaseEntity-Analysis.md"
+                "file": "content/posts/thinking-jvm.md"
               }
             }
           }
@@ -138,21 +138,21 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
     }
   },
   "active": "9599dab787c9cc38",
   "lastOpenFiles": [
+    "content/posts/BaseEntity-Analysis.md",
     "content/posts/thinking-crypto.md",
     "content/posts/thinking-jvm.md",
     "static/apple-touch-icon.png",
     "static/1657553579114-0754ec31-b112-4cc1-86ea-5781bc11ecd8.png",
-    "content/posts/BaseEntity-Analysis.md",
     "content/posts/test.md",
     "content/posts/密码学漫谈.md",
     "1684068915223-5287d1b8-12d6-4e71-baf9-91d6460af5ac.png.md",
