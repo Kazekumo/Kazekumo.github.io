@@ -1,7 +1,7 @@
 ---
-title: "JVM笔记01"
+title: "JVM笔记"
 date: "2023-05-15"
-description: ""
+description: "jvm主体架构及垃圾回收算法的介绍"
 tags: ["jvm"]
 ShowToc: false
 ShowBreadCrumbs: true

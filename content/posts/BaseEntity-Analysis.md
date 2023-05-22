@@ -1,5 +1,5 @@
 ---
-title: "BaseEntity源码分析"
+title: "某基类的源码分析"
 date: "2023-05-10"
 description: "浅浅分析一下"
 tags: ["java"]

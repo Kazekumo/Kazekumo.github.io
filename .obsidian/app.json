@@ -1,7 +1,14 @@
 {
-  "newLinkFormat": "absolute",
+  "newLinkFormat": "shortest",
   "alwaysUpdateLinks": true,
   "useMarkdownLinks": true,
   "promptDelete": false,
-  "newFileLocation": "root"
+  "newFileLocation": "current",
+  "attachmentFolderPath": "static",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }
