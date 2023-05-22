@@ -6,7 +6,8 @@
 消息发送者，发送信息传递前先进行加密。接受者收到消息后先进行解密。
 对称加密建立在这样一个假设下：
 在消息传递前，通信双方已通过其他可靠方式共享了密钥(secretKey)
-对称加密不仅简单，而且加密效率高。但是问题在于通信双方如何共享一个密钥，而不泄露给第三方。常见的对称加密算法有 DES, AES 等。
+对称加密不仅简单，而且加密效率高。但是问题在于通信双方如何共享一个密钥，而不泄露给第三方。
+常见的对称加密算法有 DES, AES 等。
 非对称加密 非对称加密(Asymmetric Cryptography)，如它的名字一样，和对称加密相比，它最显著的区别在于加解密使用的不是同一个密钥。
 非对称加密中，密钥成对出现，有公钥(public key)和私钥(private key)的区别。并且通信双方并不共享同一密钥，而是使用对方的公钥进行加密，自己的私钥进行解密。
 以甲乙双方为例，通信过程如下:
@@ -16,8 +17,7 @@
 Diffie-Hellman算法 上面提到，对称加密假设通信双方已经共享同一个密钥。DH算法便是用来使通信双方在不可信信道中共享密钥的。
 假设甲乙双方需要传递密钥，他们之间可以这么做：
 甲首先选择一个素数p，例如97，底数g是p的一个原根，例如5，随机数a，例如123，然后计算A=g^a mod p，结果是34，然后，甲发送p＝97，g=5，A=34给乙； 乙方收到后，也选择一个随机数b，例如，456，然后计算B = g^b mod p，结果是75，乙再同时计算s = A^b mod p，结果是22； 乙把计算的B=75发给甲，甲计算s ＝ B^a mod p，计算结果与乙算出的结果一样，都是22。 原理解释：
-对于甲的密钥计算过程有： s1 = B^a mod p = (g^b mod p)^a mod p = g^(b*a) mod p
-对于乙的密钥计算过程有： s2 = A^b mod p = (g^a mod p)^b mod p = g^(a*b) mod p...</p></div><footer class=entry-footer><span title='2023-05-20 00:00:00 +0000 UTC'>May 20, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;173 words</footer><a class=entry-link aria-label="post link to 密码学漫谈" href=https://Kazekumo.github.io/posts/thinking-crypto/></a></article></main><footer class=footer><span>&copy; 2023 <a href=https://Kazekumo.github.io/>Kazekumo's blog</a></span>
+对于甲的密钥计算过程有： s1 = B^a mod p = (g^b mod p)^a mod p = g^(b*a) mod p...</p></div><footer class=entry-footer><span title='2023-05-20 00:00:00 +0000 UTC'>May 20, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;175 words</footer><a class=entry-link aria-label="post link to 密码学漫谈" href=https://Kazekumo.github.io/posts/thinking-crypto/></a></article></main><footer class=footer><span>&copy; 2023 <a href=https://Kazekumo.github.io/>Kazekumo's blog</a></span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

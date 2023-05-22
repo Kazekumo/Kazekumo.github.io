@@ -6,7 +6,8 @@
 消息发送者，发送信息传递前先进行加密。接受者收到消息后先进行解密。
 对称加密建立在这样一个假设下：
 在消息传递前，通信双方已通过其他可靠方式共享了密钥(secretKey)
-对称加密不仅简单，而且加密效率高。但是问题在于通信双方如何共享一个密钥，而不泄露给第三方。常见的对称加密算法有 DES, AES 等。
+对称加密不仅简单，而且加密效率高。但是问题在于通信双方如何共享一个密钥，而不泄露给第三方。
+常见的对称加密算法有 DES, AES 等。
 非对称加密 非对称加密(Asymmetric Cryptography)，如它的名字一样，和对称加密相比，它最显著的区别在于加解密使用的不是同一个密钥。
 非对称加密中，密钥成对出现，有公钥(public key)和私钥(private key)的区别。并且通信双方并不共享同一密钥，而是使用对方的公钥进行加密，自己的私钥进行解密。
 以甲乙双方为例，通信过程如下:
@@ -16,8 +17,7 @@
 Diffie-Hellman算法 上面提到，对称加密假设通信双方已经共享同一个密钥。DH算法便是用来使通信双方在不可信信道中共享密钥的。
 假设甲乙双方需要传递密钥，他们之间可以这么做：
 甲首先选择一个素数p，例如97，底数g是p的一个原根，例如5，随机数a，例如123，然后计算A=g^a mod p，结果是34，然后，甲发送p＝97，g=5，A=34给乙； 乙方收到后，也选择一个随机数b，例如，456，然后计算B = g^b mod p，结果是75，乙再同时计算s = A^b mod p，结果是22； 乙把计算的B=75发给甲，甲计算s ＝ B^a mod p，计算结果与乙算出的结果一样，都是22。 原理解释：
-对于甲的密钥计算过程有： s1 = B^a mod p = (g^b mod p)^a mod p = g^(b*a) mod p
-对于乙的密钥计算过程有： s2 = A^b mod p = (g^a mod p)^b mod p = g^(a*b) mod p...</p></div><footer class=entry-footer><span title='2023-05-20 00:00:00 +0000 UTC'>May 20, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;173 words</footer><a class=entry-link aria-label="post link to 密码学漫谈" href=https://Kazekumo.github.io/posts/thinking-crypto/></a></article><article class=post-entry><header class=entry-header><h2>JVM笔记01</h2></header><div class=entry-content><p>为什么有JVM 在学习JVM之前，大家可以先思考一个问题，为什么我们需要JVM
+对于甲的密钥计算过程有： s1 = B^a mod p = (g^b mod p)^a mod p = g^(b*a) mod p...</p></div><footer class=entry-footer><span title='2023-05-20 00:00:00 +0000 UTC'>May 20, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;175 words</footer><a class=entry-link aria-label="post link to 密码学漫谈" href=https://Kazekumo.github.io/posts/thinking-crypto/></a></article><article class=post-entry><header class=entry-header><h2>JVM笔记</h2></header><div class=entry-content><p>为什么有JVM 在学习JVM之前，大家可以先思考一个问题，为什么我们需要JVM
 以上图为例，cpp开发的软件具备一个明显劣势，那就是他无法满足跨平台的需求(一次编写，处处编译)
 计算机领域有一句名言：
 计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决.
@@ -33,14 +33,14 @@ JVM能做什么 平台无关性 语言无关性 JVM运行机制 垃圾回收算�
 如图所示，该算法的主要思路是把一系列被称作「GC Roots」的根对象作为起始节点，从这些节点开始往下搜索，搜索过的路径称作「引用链」（Reference Chain）。如果某个对象和 GC Roots 间没有引用链连接。就说明该对象不可达，也就不可能再被使用。
 在 JVM 中，可作为 GC Roots 的对象有以下几种：
 VM Stack 中引用的对象，如方法参数、局部变量、临时变量等。 在方法区内的静态属性对象 在方法去内常量引用的对象，如字符串常量池（String Table）中的引用 本地方法栈中 JNI 引用的对象 JVM 内部引用，如基本数据类型对应的 Class 对象，一些长驻的异常对象（NPE OOM 等），以及类加载器。 所有被同步锁（synchronized 关键字）持有的对象 JMXBean、JVMTI 中的回调、本地代码缓存等 垃圾回收算法 分代收集（Generational Collection）理论是最广泛应用的垃圾收集理论，建立在两个分代假说之上：
-弱分代假说（Weak Generational Hypothesis）：大多数对象朝生夕灭 强分代假说（Strong Generational Hypothesis）：熬过越多次 GC 的对象，越难以消亡 因此，很容易想到将内存划分为多个区域，针对不同区域的特点，优化收集算法。很多 JVM GC 就是这么做的。...</p></div><footer class=entry-footer><span title='2023-05-15 00:00:00 +0000 UTC'>May 15, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;305 words</footer><a class=entry-link aria-label="post link to JVM笔记01" href=https://Kazekumo.github.io/posts/thinking-jvm-01/></a></article><article class=post-entry><header class=entry-header><h2>BaseEntity源码分析</h2></header><div class=entry-content><p>开发中发现许多对象都依赖了css的基类对象BaseEntity 偶然点开发现里面的写法不太容易理解，因此分析记录一下
+弱分代假说（Weak Generational Hypothesis）：大多数对象朝生夕灭 强分代假说（Strong Generational Hypothesis）：熬过越多次 GC 的对象，越难以消亡 因此，很容易想到将内存划分为多个区域，针对不同区域的特点，优化收集算法。很多 JVM GC 就是这么做的。...</p></div><footer class=entry-footer><span title='2023-05-15 00:00:00 +0000 UTC'>May 15, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;305 words</footer><a class=entry-link aria-label="post link to JVM笔记" href=https://Kazekumo.github.io/posts/thinking-jvm/></a></article><article class=post-entry><header class=entry-header><h2>某基类的源码分析</h2></header><div class=entry-content><p>开发中发现许多对象都依赖了css的基类对象BaseEntity 偶然点开发现里面的写法不太容易理解，因此分析记录一下
 点开对象可以发现，有两个属性是比较特别的，也就是 propMap 和 visitor 本文的目的也主要是分析这两个对象的用途。
 先直接看这两个对象在哪用了，翻阅源码可以发现，两个属性的主要使用入口都在toString中。 最终这个函数是调用了toString0 或者 hexString 初见这一坨，我也百思不得其解，先不管，继续看看toString0 分析代码可知，toString0这个方法才是对象转字符串的主要实现，通过getProps获取对象的属性列表，然后在下面进行属性的拼接 看看getProps，可以发现propMap的用途是存储该类的所有属性名称。 如果该对象的属性未初始化，则通过反射获取。 需要注意的是，这里使用了 double check lock，避免重入。 当第二次进入时，就可以复用属性，不用再反射获取了。 到了此处，propMap 的用途基本就解答了。
 那么为啥要有 visotor 呢？我们再回过头来看toString方法 在toString方法中，visitor 的逻辑主要如下
 如果 visitor为空，重新初始化 visitor 如果 visitor.get() 为空： 1. 设置 visitor 为当前对象 2. 调用 toString0 3. 设置 visitor 为 null 如果 visitor 的值不为空，返回 HexString 这里的目的不太好理解。首先对于步骤1，我们可以先忽略，因为实际不影响流程。 控制流程的主要是步骤2和步骤3。 首先可以观察到，步骤2的进入条件是 visitor 为空，步骤3的进入条件为 visitor 不为空。也就是说，步骤2和步骤3这两步操作是互斥的。 在步骤2.1中，设置了 visitor 为当前对象，然后在2.3中又重置了回去。那么也就是说同一个线程，他不能重入步骤2。
 这里比较有迷惑性，因为threadLocal是线程独立的，搞这么复杂干嘛呢，同一个线程还能重入这个方法不成？ 读者可以先思考一下，表情包下面给出答案。
 同一个线程还能重入这个方法不成？确实是可能的。 答案就是当对象发生了循环引用，这时调用toString方法，序列化子对象时，由于循环引用，就会再次进入父对象的toString方法，不断套娃，最终导致栈溢出。 所以此处使用visitor进行流程控制的目的就是为了打破这个循环调用链。
-实际上，许多框架都支持了循环引用，不过方式上可能有些许差异，比如 FastJson 使用 $ref 占位符避免序列化子对象，Spring 使用了多级缓存的方式等等，这里就不赘述了。...</p></div><footer class=entry-footer><span title='2023-05-10 00:00:00 +0000 UTC'>May 10, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;71 words</footer><a class=entry-link aria-label="post link to BaseEntity源码分析" href=https://Kazekumo.github.io/posts/baseentity-analysis/></a></article></main><footer class=footer><span>&copy; 2023 <a href=https://Kazekumo.github.io/>Kazekumo's blog</a></span>
+实际上，许多框架都支持了循环引用，不过方式上可能有些许差异，比如 FastJson 使用 $ref 占位符避免序列化子对象，Spring 使用了多级缓存的方式等等，这里就不赘述了。...</p></div><footer class=entry-footer><span title='2023-05-10 00:00:00 +0000 UTC'>May 10, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;71 words</footer><a class=entry-link aria-label="post link to 某基类的源码分析" href=https://Kazekumo.github.io/posts/baseentity-analysis/></a></article></main><footer class=footer><span>&copy; 2023 <a href=https://Kazekumo.github.io/>Kazekumo's blog</a></span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
