@@ -138,16 +138,19 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
     }
   },
   "active": "9599dab787c9cc38",
   "lastOpenFiles": [
+    "content/posts/BaseEntity-Analysis.md",
+    "content/posts/thinking-jvm.md",
+    "content/posts/thinking-crypto.md",
     "themes/PaperMod/theme.toml",
     "themes/PaperMod/layouts/_default/_markup/render-image.html",
     "themes/PaperMod/layouts/partials/templates/twitter_cards.html",
@@ -158,12 +161,8 @@
     "themes/PaperMod/layouts/_default/single.html",
     "themes/PaperMod/layouts/_default/rss.xml",
     "themes/PaperMod/layouts/_default/search.html",
-    "themes/PaperMod/layouts/_default/index.json",
     "themes/PaperMod/images/tn.png",
     "themes/PaperMod/images/screenshot.png",
-    "content/posts/BaseEntity-Analysis.md",
-    "content/posts/thinking-crypto.md",
-    "content/posts/thinking-jvm.md",
     "static/apple-touch-icon.png",
     "static/1657553579114-0754ec31-b112-4cc1-86ea-5781bc11ecd8.png",
     "content/posts/test.md",
