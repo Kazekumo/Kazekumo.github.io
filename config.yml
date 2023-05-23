@@ -14,6 +14,7 @@ enableEmoji: true
 pygmentsUseClasses: true
 googleAnalytics: G-3WCEV9HM1J
 
+hasCJKLanguage: true # 字数统计添加中文支持
 minify:
   disableXML: true
   minifyOutput: true
