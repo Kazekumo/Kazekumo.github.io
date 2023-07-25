@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>code on Kazekumo&#39;s blog</title>
+    <link>https://Kazekumo.github.io/tags/code/</link>
+    <description>Recent content in code on Kazekumo&#39;s blog</description>
+    <image>
+      <title>Kazekumo&#39;s blog</title>
+      <url>https://Kazekumo.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://Kazekumo.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://Kazekumo.github.io/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从常见编程范式看关注点的分离</title>
+      <link>https://Kazekumo.github.io/posts/code-styles/</link>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://Kazekumo.github.io/posts/code-styles/</guid>
+      <description>从抽象方法看编程范式</description>
+    </item>
+    
+  </channel>
+</rss>

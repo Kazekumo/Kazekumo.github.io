@@ -13,6 +13,15 @@
     <language>zh-cn</language>
     <lastBuildDate>Sat, 20 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://Kazekumo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>从常见编程范式看关注点的分离</title>
+      <link>https://Kazekumo.github.io/posts/code-styles/</link>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://Kazekumo.github.io/posts/code-styles/</guid>
+      <description>从抽象方法看编程范式</description>
+    </item>
+    
+    <item>
       <title>密码学漫谈</title>
       <link>https://Kazekumo.github.io/posts/thinking-crypto/</link>
       <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
