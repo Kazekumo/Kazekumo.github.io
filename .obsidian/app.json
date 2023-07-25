@@ -1,5 +1,5 @@
 {
-  "newLinkFormat": "shortest",
+  "newLinkFormat": "relative",
   "alwaysUpdateLinks": true,
   "useMarkdownLinks": true,
   "promptDelete": false,

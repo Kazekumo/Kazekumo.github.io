@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "f7a89b90f0b5e675",
+        "id": "7d0cb3fef17554a1",
         "type": "tabs",
         "children": [
           {
-            "id": "4b912b57376d22fb",
+            "id": "c72769c735a30bbb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/code-styles/index.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/posts/code-styles/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "content/posts/code-styles/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "content/posts/code-styles/index.md"
+              }
             }
           }
         ]
@@ -138,51 +146,54 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4b912b57376d22fb",
+  "active": "c72769c735a30bbb",
   "lastOpenFiles": [
-    "Kazekumo.github.io/themes/PaperMod",
-    "Kazekumo.github.io/themes",
-    "Kazekumo.github.io/static/Pasted image 20230521041137.png",
-    "Kazekumo.github.io/static/Pasted image 20230521041154.png",
-    "Kazekumo.github.io/static/Pasted image 20230521034511.png",
-    "Kazekumo.github.io/static/Pasted image 20230521040045.png",
-    "Kazekumo.github.io/static/Pasted image 20230521033838.png",
-    "Kazekumo.github.io/static/Pasted image 20230521033833.png",
-    "Kazekumo.github.io/static/Pasted image 20230521033835.png",
-    "Kazekumo.github.io/static/Pasted image 20230521011613.png",
-    "Kazekumo.github.io/static/Pasted image 20230512180112.png",
-    "Kazekumo.github.io/static/Pasted image 20230512175229.png",
-    "Kazekumo.github.io/static/favicon.ico",
-    "Kazekumo.github.io/static",
+    "content/posts/code-styles/images/Pasted image 20230725232748.png",
+    "content/posts/thinking-jvm/index.md",
+    "content/posts/thinking-crypto/index.md",
+    "content/posts/code-styles/index.md",
+    "content/posts/code-styles/images/Pasted image 20230725222418.png",
+    "content/posts/code-styles/images/Pasted image 20230725224715.png",
+    "content/posts/code-styles/images",
+    "content/search.md",
+    "public/robots.txt",
+    "public/posts/index.xml",
+    "public/index.xml",
+    "public/index.json",
+    "public/404.html",
+    "public/sitemap.xml",
+    "public/search/index.html",
+    "public/search",
+    "public/posts/code-styles/index.html",
+    "public/posts/thinking-jvm/images/1684160904333-0fde3ca6-d2a2-4c44-9361-631f79be278f.png",
+    "public/posts/thinking-jvm/images/1684076954041-0dc4d60d-237d-4a3a-9a6e-7da07382fc74.webp",
+    "public/posts/thinking-jvm/images/1684076667160-024c7348-db86-47f5-ae7a-c7e3ccdf259d.webp",
+    "public/posts/thinking-jvm/images/1684076436956-92176dc5-2397-47a4-be50-94c379bb3131.webp",
+    "public/posts/thinking-jvm/images/1684076602032-1f2caced-02d9-457c-be30-023a422f1b10.webp",
+    "public/posts/thinking-jvm/images/1684076188174-78f0079e-9ce0-47dd-9eb2-12ddef627a09.webp",
+    "public/posts/thinking-jvm/images/1684071639796-32385ee0-03e7-4863-8d4e-a50045548397.png",
+    "public/posts/thinking-jvm/images/1684069989306-e10efadc-c278-4534-8c54-4ec17fe7ee60.png",
+    "content/posts/thinking-jvm.md",
+    "content/archives.md",
+    "content/posts/BaseEntity-Analysis.md",
+    "content/posts/thinking-crypto.md",
+    "content/posts/thinking-jvm/Untitled.md",
+    "content/posts/BaseEntity-Analysis/index.md",
+    "2023-07-26.md",
+    "Untitled.md",
+    "Untitled.canvas",
     "Kazekumo.github.io/content/posts/thinking-jvm.md",
     "Kazekumo.github.io/content/posts/thinking-crypto.md",
     "Kazekumo.github.io/content/posts/BaseEntity-Analysis.md",
     "Kazekumo.github.io/content/search.md",
     "Kazekumo.github.io/content/archives.md",
-    "Kazekumo.github.io/content/posts",
-    "Kazekumo.github.io/content",
-    "Kazekumo.github.io/config.yml",
     "Kazekumo.github.io/archetypes/default.md",
-    "Kazekumo.github.io/archetypes",
-    "Kazekumo.github.io",
-    "themes/PaperMod/theme.toml",
-    "themes/PaperMod/layouts/_default/_markup/render-image.html",
     "themes/PaperMod/README.md",
-    "content/posts/thinking-jvm.md",
-    "content/posts/thinking-crypto.md",
-    "content/posts/BaseEntity-Analysis.md",
-    "content/posts/thinking-jvm/index.md",
     "content/posts/BaseEntity-Analysis/index.md.md",
-    "content/posts/BaseEntity-Analysis/index.md",
-    "content/posts/thinking-crypto/index.md",
     "content/posts/thinking-crypto/thinking-crypto.md",
     "content/posts/BaseEntity-Analysis/thinking-crypto.md",
     "content/posts/BaseEntity-Analysis/BaseEntity-Analysis.md",
     "content/posts/test.md",
-    "content/posts/密码学漫谈.md",
-    "1684068915223-5287d1b8-12d6-4e71-baf9-91d6460af5ac.png.md",
-    "Pasted image 20230505092032.png.md",
-    "content/archives.md",
-    "content/search.md"
+    "content/posts/密码学漫谈.md"
   ]
 }
